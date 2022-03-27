@@ -1,0 +1,19 @@
+{   "theme_color": "#7facff",
+    "background_color": "#7facff",
+    "description": "MASTROWALL Educator",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "images/mwalllogo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        }
+    ],
+    "name": "MASTROWALL Educator",
+    "short_name": "MASTROWALL Educator",
+    "start_url": "/",
+    "url": "https://educator.mastrowall.com/",
+    "manifestUrl": "https://educator.mastrowall.com/manifest.json",
+    "lang": ""
+}
