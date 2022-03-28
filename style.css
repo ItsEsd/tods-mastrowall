@@ -79,13 +79,11 @@ body {
   }
 
   #textBox {
-    margin-top: 0px;
-    margin-left: 50px;
+    
     height: 440px;
     max-width: 1000px;
     border: none;
-    border-bottom: 1px solid #008000;
-    border-right: 1px dotted #008000;
+    border: 1px dotted #515251;
     padding: 10px;
     overflow-y: scroll;
     outline: none;
@@ -123,26 +121,38 @@ body {
 
   #toolBar2 {
     display: inline-block;
-    width: 45px;
-    float: left;
-    border: 1px solid #0c09c9;
+    width: 100%;
+    max-width:1000px;
+    margin-bottom:10px;
+    border: 1px solid #515251;
     margin-top: 0px;
+    border-radius: 6px;
+    text-align: right;
   }
 
   #toolBar1 {
-    margin-left: 42px;
-    margin-top: 2px;
+    padding: 6px;
+    width: 100%;
+    max-width:600px;
+    margin-bottom:20px;
+   
+    margin-top:10px;
   }
-
+#toolBar1 .comdivone{
+  border: 1px solid #515251;
+  max-width:0px;
+  border-radius: 6px;
+}
   .modal {
     height: 100%;
     width: 100%;
+    text-align: center;
   }
 
   .modal-content {
     background-color: #0c09c9;
     width: 100%;
-    border: 2px solid white;
+    border: 1px solid white;
   }
 
   .modal-dialog {
@@ -221,10 +231,12 @@ body {
   padding-bottom:70px;
   }
   #backtotdbrd{
-    padding: 6px 14px;
-  bottom:40px;
-  right:40px;
+    padding: 4px 10px;
+  bottom:20px;
+  right:20px;
   position: fixed;
+  background-color: #0c09c9ad;
+  display:none;
   }
 
   .form-control {
