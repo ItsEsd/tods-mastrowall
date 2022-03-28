@@ -354,7 +354,7 @@
         }
         var oPrntWin = window.open("", "_blank", "width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
         oPrntWin.document.open();
-        oPrntWin.document.write("<!doctype html><html><head><title>M A S T R O W A L L<\/title><link rel=\"stylesheet\" href=\"css/bootstrap.min.css\"><link rel=\"stylesheet\" href=\"style.css\"><\/head><body onload=\"print();\">" + oDoc.innerHTML + "<\/body><\/html>");
+        oPrntWin.document.write('<!doctype html><html><head><title>M A S T R O W A L L<\/title><link rel=\"stylesheet\" href=\"../vendor/style/bootstrap4.5.2.min.css\"><link rel=\"stylesheet\" href=\"style.css\"><\/head><body onload=\"print();\"><div align=\"center\"><div style=\"width:100%;max-width:1000px;text-align:justify;\">' + oDoc.innerHTML + '<\/div><\/div><\/body><\/html>');
         oPrntWin.document.close();
       }
       document.getElementById("crImage").addEventListener("input", selectImg);
@@ -438,7 +438,7 @@
         var link, blob, url, css;
         var oDoc;
         oDoc = document.getElementById("textBox");
-        blob = new Blob(['<!doctype html><html><head><title>M A S T R O W A L L<\/title><\/head><body onload=\"print();\"> ' + oDoc.innerHTML + '<\/body><\/html>'], {type:"text/html"});
+        blob = new Blob(['<!doctype html><html><head><title>M A S T R O W A L L<\/title><link rel=\"stylesheet\" href=\"../vendor/style/bootstrap4.5.2.min.css\"><link rel=\"stylesheet\" href=\"style.css\"><\/head><body onload=\"print();\"><div align=\"center\"><div style=\"width:100%;max-width:1000px;text-align:justify;\">' + oDoc.innerHTML + '<\/div><\/div><\/body><\/html>'], {type:"text/html"});
         url = URL.createObjectURL(blob);
         link = document.createElement('A');
         link.href = url;
