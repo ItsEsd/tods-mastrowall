@@ -88,7 +88,7 @@
                 <div class="modal-content">
                   <div class="modal-body">
                     <h5 style="color:white;">Insert Image</h5><input id="crImage" type="url" style="height:40px; width:60%; outline:none;border:1px solid #0c09c9;border-radius:0px; padding-left:6px;" placeholder=" https://" /><button type="button" class="btn btn-dark" id="btnOkImg" data-dismiss="modal" style="border:none;height:38px;width:80px;background-color:black;border-radius:0px;margin-bottom:1px;margin-left:4px;" disabled="disabled">Done</button>
-                    <div id="radioS" style="padding-top:10px;display:block;color:white;"> <input id="rd1" name="size" type="radio"> S - Left <input id="rd2" name="size" type="radio"> M - Right <input id="rd3" name="size" type="radio"> L - Center</div>
+                    <div id="radioS" style="padding-top:10px;display:block;color:white;"><input id="rd1" name="size" type="radio"> <span onclick="$('#rd1').click();selectImg();">S - Left </span><input id="rd2" name="size" type="radio"> <span onclick="$('#rd2').click();selectImg();"> M - Right</span> <input id="rd3" name="size" type="radio"> <span onclick="$('#rd3').click();selectImg();"> L - Center</span></div>
                     <input type='file' accept="image/png, image/gif, image/jpeg" id="upload" style="padding-top:10px;background-color: #0c09c9;color:white;" onclick="document.getElementById('previewImg').style.display='none';"/>
                     <div id="previewImg" style="padding-top:10px;display:none;"></div>
                   </div>
@@ -792,6 +792,9 @@
               var k = response;
               var url = JSON.parse(response);
               document.getElementById('crImage').value = url.data.link ;
+              document.getElementById("previewImg").style.display = "block";
+              document.getElementById("radioS").style.display = "block";
+              document.getElementById("previewImg").innerHTML = '<img src="' + url.data.link + '" width="100%" height="240px">';
               });
             }
           });
