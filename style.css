@@ -476,3 +476,6 @@ border-radius: 0px;
   text-align: right;
   font-size:14px;
 }
+#radioS span{
+  cursor: pointer;
+}
