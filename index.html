@@ -285,7 +285,7 @@
         if (valHTM != 0) {
           var postedTOD = JSON.stringify(document.getElementById("inHtml").value);
           var posts = JSON.parse(postedTOD);
-          document.getElementById("genId").value = Math.random().toString(26).substring(2, 5) + Math.random().toString(26).substring(2, 5);
+          document.getElementById("genId").value = "td/"+Math.random().toString(26).substring(2, 5) + Math.random().toString(26).substring(2, 5);
           $('html,body').animate({
             scrollTop: $("#p1").offset().top + 400 
           }, 1000);
@@ -559,8 +559,7 @@
       document.getElementById("poTOD").addEventListener("click", insertgenTOD);
 
       function insertgenTOD() {
-      
-        var TOD_script_url = "https://script.google.com/macros/s/AKfycby3TkQlJjToTZANdHzBFrGg280Z49wWXG6F_wK3e-dydtoWsUq9R3hrQmMw98AwX2C49w/exec";
+        var TOD_script_url = "https://script.google.com/macros/s/AKfycbxKgEl5Vx1nmxDWiG590cMBZAnbj8jdA-Zqb_A75Xy5ryJsiHXK015deQzER4DQSDZs5g/exec";
         var title = escape(JSON.stringify($("#todTitle").val()));
         var creator = escape(JSON.stringify($("#creatorN").val()));
         var food = escape(JSON.stringify($("#genK").val()));
@@ -622,8 +621,9 @@
     </script>
     <script>
       document.getElementById("preTOD").addEventListener("click", readgenTOD);
-      var TOD_script_urlread = "https://script.google.com/macros/s/AKfycbzGI2GphM15BFPHN6Fow5pzs13UmZy5_AGRMkz7z3qT8tkop4l3M7JkYg/exec";
-
+      var tdur1="https://script.google.com/macros/s/";
+      var tdur2="AKfycbzhBiB9M1ujqIqODdpuO6rBx4mQoR_niZMxJndRdY-A0OgbUi0gszQraZ4x__EnhwMq";
+      var tdur = tdur1+tdur2+"/exec" ;
       function readgenTOD() {
         document.body.style.backgroundColor = "white";
         document.getElementById('notfound').style.display = "none";
@@ -634,35 +634,42 @@
         if (itemno != 0 && food != 0) {
           document.getElementById('loaderTD').style.display = "block";
           document.getElementById('loaderTD').style.visibility = "visible";
-          var url = TOD_script_urlread + "?action=readTD";
-          $.getJSON(url, function(json) {
-            for (var i = 0; i < json.records.length - 1; i++) {
-              if (itemnoT === json.records[i].TODidd && foodF === json.records[i].TODFood) {
-                document.getElementById('dashboard').style.display = "none";
-                document.getElementById("preview").style.display = "block";
-                document.getElementById('notfound').style.display = "none";
-                var prepostpre = JSON.parse(JSON.parse(json.records[i].TODhtm));
-                var inHTML = atob(prepostpre.TODContent);
-                document.getElementById("previewPost").innerHTML = unescape(inHTML);
-                document.getElementById("previewPostTime").innerHTML = json.records[i].TimeStamp;
-                document.getElementById("previewPostId").innerHTML = "ID: " + JSON.parse(json.records[i].TODidd);
-                document.getElementById("previewPostCreator").innerHTML = JSON.parse(json.records[i].TODAddmin);
-                document.getElementById("avthumb").innerHTML = '<img width="60px" src="' + prepostpre.AVPic + '" style="padding:4px;">';
-                document.getElementById("previewPostTitle").innerHTML = prepostpre.TODTitle;
-                document.getElementById('loaderTD').style.visibility = "hidden";
-                document.getElementById('loaderTD').style.display = "none";
-                document.body.scrollTop = 0;document.documentElement.scrollTop = 0;
-                $('#intro').hide();$('#preview').show();
-              } else {
-                document.getElementById('loaderTD').style.display = "none";
-              }
-            }
+          var url = tdur + "?callback=rdreslt&tdid="+itemnoT+"&tdkey="+foodF+"&action=rdgentd";
+          var request = jQuery.ajax({
+            crossDomain: true,
+            url: url,
+            method: "GET",
+            dataType: "jsonp"
           });
         } else {
           document.getElementById('loaderTD').style.visibility = "hidden";
           return false;
         }
       }
+
+       function rdreslt(e){
+        var reslt = e.records;
+         if(reslt!="ID not found!"){
+          document.getElementById('dashboard').style.display = "none";
+                document.getElementById("preview").style.display = "block";
+                document.getElementById('notfound').style.display = "none";
+                var prepostpre = JSON.parse(JSON.parse(reslt[0].TODhtm));
+                var inHTML = atob(prepostpre.TODContent);
+                document.getElementById("previewPost").innerHTML = unescape(inHTML);
+                document.getElementById("previewPostTime").innerHTML = reslt[0].TimeStamp;
+                document.getElementById("previewPostId").innerHTML = "ID: " + JSON.parse(reslt[0].TODidd);
+                document.getElementById("previewPostCreator").innerHTML = JSON.parse(reslt[0].TODAddmin);
+                document.getElementById("avthumb").innerHTML = '<img width="60px" src="' + prepostpre.AVPic + '" style="padding:4px;">';
+                document.getElementById("previewPostTitle").innerHTML = prepostpre.TODTitle;
+                document.getElementById('loaderTD').style.visibility = "hidden";
+                document.getElementById('loaderTD').style.display = "none";
+                document.body.scrollTop = 0;document.documentElement.scrollTop = 0;
+                $('#intro').hide();$('#preview').show();
+                  }
+                else{
+                document.getElementById('loaderTD').style.visibility = "hidden";
+                  }
+                }
 
       function getId(url) {
         var regExpYT = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
