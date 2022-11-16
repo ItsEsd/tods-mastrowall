@@ -323,7 +323,9 @@ body {
     border-radius: 10px;
     width: 100%;
   }
-
+  #previewPostTitle{
+    padding-left:10px;
+  }
   .avatarPro {
     width: 80px;
     height: 80px;
@@ -393,15 +395,33 @@ body {
     font-size: 12px;
   }
 
+ 
   .youvidF {
     padding: 20px;
     width: 100%;
     max-width: 1000px;
-    min-height: 300px;
-    max-height: 340px;
+    height: 460px;
     cursor: pointer;
     text-align: center;
-  }
+    }
+   
+    .ForTypePs{
+        float:left; 
+        padding: 6px;
+        background:transparent;
+        margin:4px;
+        width:32%;
+      }
+      
+      .ForTypePm{
+        float:right;
+        display:flex;
+        flex-wrap: wrap;
+        background:transparent; 
+        padding: 6px;
+        margin:4px;
+        width:50%;
+      }
 
   .youvidF:focus {
     border: 2px solid #008000;
@@ -478,4 +498,13 @@ border-radius: 0px;
 }
 #radioS span{
   cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+  .ForTypePs,.ForTypePm{
+    width:100% !important;
+  }
+  .youvidF{
+  height:300px !important;
+  }
 }
