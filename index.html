@@ -54,25 +54,9 @@
       
         <h2>|| An Art of Learning ||</h2>
       </div> 
-      
-     <!-----  <div id="introptsign" align="center">
-      <button class="btn btn-success" id="signregpre">Continue</button>
-      <button class="btn btn-dark" id="goinmastro">Go IN >></button>
-     <p class="privacysp"><a target="_blank" href="/privacy-and-terms.html">Privacy and Terms</a>
-    <br>© 2022 by MASTROWALL
-     </p>
-      </div>  ----->
   </div>
     <!--- Create TOD Text Editor---->
     <div id="dashboard" class="container">
-     <!-------<div class="dboard" style="height:80px;background-color:white;" align="left">
-        <div style=" padding-top:0px;background-color:white;">
-          <h4 style="display:inline-block;padding-top:5px;padding-left:2px;color:#0c09c9;"> Create TOD</h4><svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" fill="currentColor" class="bi bi-easel-fill" viewBox="0 0 16 16" style="color:#0c09c9;float:left;padding:5px;">
-            <path d="M8.473.337a.5.5 0 0 0-.946 0L6.954 2h2.092L8.473.337zM12.15 11h-1.058l1.435 4.163a.5.5 0 0 0 .946-.326L12.15 11zM8.5 11h-1v2.5a.5.5 0 0 0 1 0V11zm-3.592 0H3.85l-1.323 3.837a.5.5 0 1 0 .946.326L4.908 11zM1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3z" /> </svg>
-        </div>
-        <hr style="border-color:#0c09c9;width:99%;">
-      </div>------->
-
       <div align="center" id="editorBoard" style="display:block;background-color: white;">
         <form name="compForm" method="post" target="hdnfrm" id="texteditform"> <input type="hidden" name="myDoc">
           <div id="toolBar2"> <div class="comdivone"><span>Create TOD |</span> <img class="tb1" title="Add picture" data-toggle="modal" data-target="#crimg" src="https://www.svgrepo.com/show/32379/picture.svg" onclick="document.getElementById('btnOkImg').disabled='true';" /> <img class="tb1" title="Add video" data-toggle="modal" data-target="#crvid" src="https://www.svgrepo.com/show/102295/video-play.svg" /><img class="tb1" title="Remove formatting" onclick="formatDoc('removeFormat')" src="https://www.svgrepo.com/show/314541/remove-format-solid.svg"> <img class="tb1" title="Hyperlink" data-toggle="modal" data-target="#crlnk" src="https://www.svgrepo.com/show/67898/link.svg" />  <img class="tb1" title="Undo" onclick="formatDoc('undo');" src="https://www.svgrepo.com/show/314826/undo-alt-solid.svg" /> <img class="tb1" title="Redo" onclick="formatDoc('redo');" src="https://www.svgrepo.com/show/314537/redo-alt-solid.svg" /><img class="intLink" title="Bold" onclick="formatDoc('bold');" src="https://www.svgrepo.com/show/82766/bold-button.svg" /> <img class="intLink" title="Italic" onclick="formatDoc('italic');" src="https://www.svgrepo.com/show/133204/italic-button.svg" /> <img class="intLink" title="Underline" onclick="formatDoc('underline');" src="https://www.svgrepo.com/show/136837/underline-text.svg" /><img class="intLink" title="Left align" onclick="formatDoc('justifyleft');" src="https://www.svgrepo.com/show/28745/left-alignment.svg" /> <img class="intLink" title="Center align" onclick="formatDoc('justifycenter');" src="https://www.svgrepo.com/show/28746/center-alignment.svg" /> <img class="intLink" title="Right align" onclick="formatDoc('justifyright');" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDMwMCAzMDAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMwMCAzMDA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMTUwLjAwNCwwQzY3LjE2NSwwLDAuMDAxLDY3LjE2MSwwLjAwMSwxNDkuOTk3UzY3LjE2NSwzMDAsMTUwLjAwNCwzMDBzMTQ5Ljk5NS02Ny4xNjMsMTQ5Ljk5NS0xNTAuMDAzDQoJCQlTMjMyLjg0MywwLDE1MC4wMDQsMHogTTYzLjkyOCwxNDEuODkyaDE3Mi4xNDR2MTUuNTYySDYzLjkyOFYxNDEuODkyeiBNMjM2LjA3MiwxMjEuNjM5SDEwNS4yMXYtMTUuNTYyaDEzMC44NjJWMTIxLjYzOXoNCgkJCSBNMjM2LjA3MiwxOTMuMjY5SDEwNS4yMXYtMTUuNTYyaDEzMC44NjJWMTkzLjI2OXogTTYzLjkyOCwyMjkuMDgxdi0xNS41NjJoMTcyLjE0NHYxNS41NjJINjMuOTI4eiBNNjMuOTI4LDg1LjgyN1Y3MC4yNjUNCgkJCWgxNzIuMTQ0djE1LjU2MmMwLDAsMC4wMDMsMCwwLjAwMywwSDYzLjkyOHoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" /> <img class="intLink" title="Numbered list" onclick="formatDoc('insertorderedlist');" src="https://www.svgrepo.com/show/46732/list.svg" /> <img class="intLink" title="Dotted list" onclick="formatDoc('insertunorderedlist');" src="https://www.svgrepo.com/show/20687/list.svg" /> <img class="intLink" title="Add indentation" onclick="formatDoc('indent');" src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_format_indent_increase_48px-512.png" /><img class="intLink" title="Delete indentation" onclick="formatDoc('outdent');" src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_format_indent_decrease_48px-512.png" /> <img class="intLink" title="Print/ Save as PDF" onclick="printDoc();" src="https://www.svgrepo.com/show/38190/print-button.svg" /> <img style="display:none;" class="intLink" title="Download Text" id="export" onclick="saveasDoc();" src="https://www.svgrepo.com/show/120995/download.svg" /></div>
@@ -399,11 +383,11 @@
         if (imgS != '' && imgS != 'http://') {
           if (document.getElementById('rd1').checked) {
             document.getElementById("btnOkImg").disabled = false;
-            formatDoc('insertHTML', '<img class="ForTypeP" src="' + imgS + '" width="32%" style="float:left; padding: 6px;background:transparent;margin:4px;">');
+            formatDoc('insertHTML', '<img class="ForTypePs" src="' + imgS + '" >');
           }
           if (document.getElementById('rd2').checked) {
             document.getElementById("btnOkImg").disabled = false;
-            formatDoc('insertHTML', '<img class="ForTypeP" src="' + imgS + '" width="50%" style="float:right;display:flex;flex-wrap: wrap;background:transparent; padding: 6px;margin:4px;">');
+            formatDoc('insertHTML', '<img class="ForTypePm" src="' + imgS + '" >');
           }
           if (document.getElementById('rd3').checked) {
             document.getElementById("btnOkImg").disabled = false;
