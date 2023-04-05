@@ -95,7 +95,7 @@
           
           <input id="dateQ" style="display:none;" />
           <div id="textBox" contenteditable="true" align="left">
-            <p onclick="document.getElementById('textBox').innerHTML='';" style="height:200px;">Start with a topic..</p>
+            <p onclick="document.getElementById('textBox').innerHTML='';" style="height:460px;">Start with a topic..</p>
           </div>
           <div id="toolBar1"> 
             <select onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
@@ -134,7 +134,8 @@
               <option value="yellow">Yellow</option>
               <option value="black">Black</option>
               <option value="white">White</option>
-            </select> </div>
+            </select><button id="matheqn" type="button" class="btn btn-warning" title="Insert Equation" data-toggle="modal" data-target="#creqn">&#8721;</button>
+            <button id="sktchpd" type="button" class="btn btn-dark" onclick="window.open('https://sketch.mastrowall.com', '_blank', 'location=center,height=670,width=1200,left=80,top=100,scrollbars=yes,status=yes');">Sketch Pad</button></div>
           <div style="display:none;">
             <p id="editMode"> <input type="checkbox" name="switchMode" id="switchBox" onchange="setDocMode(this.checked);" /> <label for="switchBox">Show HTML</label> </p>
           </div>
@@ -204,6 +205,15 @@
         </form>
        </div>
     </div>
+    <div class="modal" id="creqn" role="dialog" align="center">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h5 style="color:white;">Insert Equation</h5><math-field id="formula"></math-field><button type="button" class="btn btn-dark" id="btnOkEqn"  style="border:none;height:38px;width:100%;background-color:black;border-radius:0px;margin-bottom:1px;margin-top:4px;" disabled="disabled">Insert</button>
+          </div>
+        </div>
+      </div>
+    </div><input id="eqntst" style="display:none;">
     <iframe name="hdnfrm" id="hdnfrm" style="display:none;"></iframe>
     <!----------Preview TOD------------>
     <div align="center" style="background:white; display:none;" id="preview">
@@ -796,6 +806,47 @@
           });
         });
         </script>
+         <script src="mathlive/dist/mathlive.min.js"></script>
+         <script>
+               var mf = document.getElementById('formula');
+               mf.addEventListener('input',(ev) => {
+ 
+               if(ev.target.value !=""){
+               document.getElementById('btnOkEqn').disabled = false;
+               }
+               else{
+               document.getElementById('btnOkEqn').disabled = true;
+               }
+               var elem =  document.getElementById('eqntst');
+               elem.value =   mf.value;      
+               console.log(mf.value);
+               });
+               document.getElementById('btnOkEqn').addEventListener('click',insrteqn);
+               function insrteqn(){
+               var eqnv = $('#eqntst').val();
+               formatDoc('insertHTML', `<math-field class="mftd">`+eqnv+`</math-field><br>`);
+               window.addEventListener('DOMContentLoaded', 
+             () => MathLive.renderMathInDocument());
+               }
+               mf.addEventListener('beforeinput', (ev) => {
+               if (ev.inputType === 'insertLineBreak') {
+               mf.executeCommand("moveToNextPlaceholder");
+               ev.preventDefault();
+               };
+               });
+               </script>
+         <script>
+           window.addEventListener('DOMContentLoaded', 
+             () => MathLive.renderMathInDocument()
+           );
+           mf.addEventListener("focus", () =>  mathVirtualKeyboard.show());
+           </script>
+           <script type="module">
+             import { ComputeEngine } from 
+               'https://unpkg.com/@cortex-js/compute-engine?module';
+             const ce = new ComputeEngine();
+             document.getElementsByClassName('mftd').disabled =true;
+           </script>
      <script src="root/main.js"></script>
   </body>
 
