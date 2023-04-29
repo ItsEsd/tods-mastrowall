@@ -7,9 +7,9 @@ var r = url.searchParams.get("td");
 if(r =="valid"){
   document.getElementById('preId').value= q;
   document.getElementById('preK').value= k;
- 
   readgenTOD();
 }
 else{
   $('#intro').show();
 }
+
