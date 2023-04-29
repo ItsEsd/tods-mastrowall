@@ -42,9 +42,22 @@
     <script src="vendor/js/jquery-ui-1.11.2.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <base target="_blank">
+    <script>
+      var decodedCookie = decodeURIComponent(document.cookie); 
+    var ca = decodedCookie.split(';');
+    function chkck(){for (var i = 0; i < ca.length; i++) {
+       var c = ca[i].split('mwallced=')[1];
+       var d = ca[i].split('mwallcstu=')[1];
+    if(c =="true" || d =="true"){
+      return true;
+    }}}
+    if(chkck() !=true){
+      window.open('https://e-enroll.mastrowall.com','_self');
+    }
+    setInterval(function(){console.clear();},500);
+    </script>
   </head>
   <body onload="initDoc(); pasteFun();">
-
     <!------Intro ----->
     <div id="intro">
       <div align="center"> 
