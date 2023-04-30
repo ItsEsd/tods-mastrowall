@@ -617,7 +617,12 @@
           document.getElementById("postT").style.display="none";
           document.getElementById("AppShare").innerHTML = "<a class='ApShare' style='font-size:14px; text-decoration:none;color:#008000;background:#e6e6e6;padding:6px 10px;border-radius:4px;' type='button' target='_blank' href='https://wa.me/?text=" + creator + " has created a TOD. Create your TOD and share at https://mastrowall.com/. Shared TOD ID : " + itemno1 + " Key: " + food1 + " N.B: MASTROWALL is An Art of Learning. Do not misuse.' data-action='share/whatsapp/share'><b>Share On WhatsApp </b><i class='fa fa-whatsapp' style='font-size:20px;color:green;'></i></a><br><a class='ApShare' style='font-size:14px;margin-top:10px; text-decoration:none;color:#0c09c9;background:#e6e6e6;padding:6px 10px;border-radius:4px;' target='_parent' type='button' href='sms:?body=" + creator + " has created a TOD. Create your TOD and share at https://mastrowall.com/. Shared TOD ID : " + itemno1 + " Key: " + food1 + " N.B: MASTROWALL is An Art of Learning. Do not misuse.'><b>Send SMS </b><i class='fa fa-commenting' style='font-size:20px;color:#cc6600;'></i></a><a class='ApShare' style='font-size:14px;margin-top:10px; margin-left:6px;text-decoration:none;color:#0c09c9;background:#e6e6e6;padding:6px 10px;border-radius:4px;' target='_parent' type='button' href='mailto:?body=" + creator + " has created a TOD. Create your TOD and share at https://mastrowall.com/. Shared TOD ID : " + itemno1 + " Key: " + food1 + " N.B: MASTROWALL is An Art of Learning. Do not misuse.'><b>Send Mail </b><i class='fa fa-envelope' style='font-size:20px;color:#cc6600;'></i></a>";
           document.getElementById("copyto").value = "ID: " + item + " KEY: " + foodF;
-         
+          setTimeout(function() {
+          $('#topictod').fadeOut('fast');
+        }, 1000);
+        document.getElementById("genK").value ="";
+        document.getElementById("confirmK").value ="";
+        document.getElementById("loader-potd").style.display ="none";
         } else {
           return false;
         }
