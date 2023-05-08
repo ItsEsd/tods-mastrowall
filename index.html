@@ -678,6 +678,7 @@
                 document.getElementById("previewPostCreator").innerHTML = JSON.parse(reslt[0].TODAddmin);
                 document.getElementById("avthumb").innerHTML = '<img width="60px" src="' + prepostpre.AVPic + '" style="padding:4px;">';
                 document.getElementById("previewPostTitle").innerHTML = prepostpre.TODTitle;
+                document.title = prepostpre.TODTitle +" | " + JSON.parse(reslt[0].TODAddmin);
                 document.getElementById('loaderTD').style.visibility = "hidden";
                 document.getElementById('loaderTD').style.display = "none";
                 document.body.scrollTop = 0;document.documentElement.scrollTop = 0;
