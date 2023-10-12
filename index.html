@@ -1,11 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="en-IN">
 
-  <head><meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <head>
    <!-- Primary Meta Tags -->
 <title>TOD | MASTROWALL</title>
 <meta name="title" content="TOD | MASTROWALL">
-<meta name="description" content="">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJK82X011D"></script>
 <script>
@@ -18,14 +17,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tods.mastrowall.com/">
 <meta property="og:title" content="TOD | MASTROWALL">
-<meta property="og:description" content="">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ItsEsd/mastrowall-com@22374d9ea666414c343a713211f7eca1d77a6bf0/images/mastro-meta.png">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://tods.mastrowall.com/">
 <meta property="twitter:title" content="TOD | MASTROWALL">
-<meta property="twitter:description" content="">
 <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/ItsEsd/mastrowall-com@22374d9ea666414c343a713211f7eca1d77a6bf0/images/mastro-meta.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -685,15 +682,24 @@
                 document.body.scrollTop = 0;document.documentElement.scrollTop = 0;
                 $('#intro').hide();$('#preview').show();
                 const newMetaTag = document.createElement('meta');
+                const newMetaTagFB = document.createElement('meta');
+                const newMetaTagTIT = document.createElement('meta');
                 newMetaTag.setAttribute('name', 'description');
                 newMetaTag.setAttribute('content', metdescp);
-                document.head.appendChild(newMetaTag);
+                newMetaTagFB.setAttribute('property', 'og:description');
+                newMetaTagFB.setAttribute('content', metdescp);
+                newMetaTagTIT.setAttribute('property', 'twitter:description');
+                newMetaTagTIT.setAttribute('content', metdescp);
+                document.getElementsByTagName('head')[0].appendChild(newMetaTag);
+                document.getElementsByTagName('head')[0].appendChild(newMetaTagFB);
+                document.getElementsByTagName('head')[0].appendChild(newMetaTagTIT);
+
               }
                 else{
                 document.getElementById('loaderTD').style.visibility = "hidden";
                   }
                 }
-    
+               
 
       function getId(url) {
         var regExpYT = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
