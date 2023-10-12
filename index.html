@@ -678,16 +678,22 @@
                 document.getElementById("previewPostCreator").innerHTML = JSON.parse(reslt[0].TODAddmin);
                 document.getElementById("avthumb").innerHTML = '<img width="60px" src="' + prepostpre.AVPic + '" style="padding:4px;">';
                 document.getElementById("previewPostTitle").innerHTML = prepostpre.TODTitle;
-                document.title = prepostpre.TODTitle +" | " + JSON.parse(reslt[0].TODAddmin);
+                const metdescp = prepostpre.TODTitle +" | " + JSON.parse(reslt[0].TODAddmin);
+                document.title = metdescp;
                 document.getElementById('loaderTD').style.visibility = "hidden";
                 document.getElementById('loaderTD').style.display = "none";
                 document.body.scrollTop = 0;document.documentElement.scrollTop = 0;
                 $('#intro').hide();$('#preview').show();
-                  }
+                const newMetaTag = document.createElement('meta');
+                newMetaTag.setAttribute('name', 'description');
+                newMetaTag.setAttribute('content', metdescp);
+                document.head.appendChild(newMetaTag);
+              }
                 else{
                 document.getElementById('loaderTD').style.visibility = "hidden";
                   }
                 }
+    
 
       function getId(url) {
         var regExpYT = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
