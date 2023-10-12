@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="en-IN">
-
   <head>
-   <!-- Primary Meta Tags -->
 <title>TOD | MASTROWALL</title>
 <meta name="title" content="TOD | MASTROWALL">
-<!-- Global site tag (gtag.js) - Google Analytics -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJK82X011D"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -13,20 +13,18 @@
   gtag('js', new Date());
   gtag('config', 'G-WJK82X011D');
 </script>
-<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tods.mastrowall.com/">
 <meta property="og:title" content="TOD | MASTROWALL">
+<meta property="og:description" content="">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ItsEsd/mastrowall-com@22374d9ea666414c343a713211f7eca1d77a6bf0/images/mastro-meta.png">
 
-<!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://tods.mastrowall.com/">
 <meta property="twitter:title" content="TOD | MASTROWALL">
+<meta property="twitter:description" content="">
 <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/ItsEsd/mastrowall-com@22374d9ea666414c343a713211f7eca1d77a6bf0/images/mastro-meta.png">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex">
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/ItsEsd/mastrowall-com@824e862529a56e6c81512e2a5a0a0c8852ff0779/images/favicon-logos/todlogo.png" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="vendor/style/bootstrap4.5.2.min.css">
@@ -681,19 +679,15 @@
                 document.getElementById('loaderTD').style.display = "none";
                 document.body.scrollTop = 0;document.documentElement.scrollTop = 0;
                 $('#intro').hide();$('#preview').show();
-                const newMetaTag = document.createElement('meta');
-                const newMetaTagFB = document.createElement('meta');
-                const newMetaTagTIT = document.createElement('meta');
-                newMetaTag.setAttribute('name', 'description');
-                newMetaTag.setAttribute('content', metdescp);
-                newMetaTagFB.setAttribute('property', 'og:description');
-                newMetaTagFB.setAttribute('content', metdescp);
-                newMetaTagTIT.setAttribute('property', 'twitter:description');
-                newMetaTagTIT.setAttribute('content', metdescp);
-                document.getElementsByTagName('head')[0].appendChild(newMetaTag);
-                document.getElementsByTagName('head')[0].appendChild(newMetaTagFB);
-                document.getElementsByTagName('head')[0].appendChild(newMetaTagTIT);
+              function updateSocialMediaMetaTags(newTitle, newDescription) {
+              document.querySelector('meta[property="og:title"]').setAttribute('content', newTitle);
+              document.querySelector('meta[property="og:description"]').setAttribute('content', newDescription);
 
+              document.querySelector('meta[property="twitter:title"]').setAttribute('content', newTitle);
+              document.querySelector('meta[property="twitter:description"]').setAttribute('content', newDescription);
+              }
+
+               updateSocialMediaMetaTags("TOD | MASTROWALL", metdescp);
               }
                 else{
                 document.getElementById('loaderTD').style.visibility = "hidden";
