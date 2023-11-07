@@ -452,8 +452,8 @@
         var link = document.getElementById("crVideo").value;
         var myId = getId(link);
         if (link != '' && link != 'http://') {
-          document.getElementById("previewvid").innerHTML = '<iframe class="youvidF" src="' + myId + '" frameborder="0" allowfullscreen="true"></iframe>';
-          formatDoc('insertHTML', '<iframe class="youvidF" src="' + myId + '" frameborder="0" allowfullscreen="true"></iframe>');
+          document.getElementById("previewvid").innerHTML = '<div class="youvidF embed-responsive"><iframe src="' + myId + '" frameborder="0" allowfullscreen="true"></iframe></div><br>';
+          formatDoc('insertHTML', '<br><div class="youvidF embed-responsive"><iframe src="' + myId + '" frameborder="0" allowfullscreen="true"></iframe></div><br>');
         } else {
           return false;
         }
