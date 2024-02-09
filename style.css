@@ -666,3 +666,12 @@ footer div {
   color: #00000085;
   background: #dcdcdc;
 }
+#shwprvw {
+  width: 100%;
+  border: 0px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #202020;
+  color: white;
+  margin-top: 20px;
+}
