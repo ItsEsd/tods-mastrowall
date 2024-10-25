@@ -107,7 +107,10 @@ img.tb1:hover {
 .nmttl {
   font-size: 14px;
   float: left;
-  margin: 10px;
+  margin: 3px auto;
+  padding: 5px;
+  padding-left: 10px;
+  display: inline-block;
 }
 #sourceText {
   padding: 0;
@@ -201,6 +204,7 @@ math-field:active {
   width: 100%;
   max-width: 800px;
   margin-top: 10px;
+  text-align: center;
 }
 
 .modal {
@@ -350,7 +354,14 @@ input:valid {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-
+.shwtdbx {
+  box-shadow: 0 1px 6px 0 grey;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  background: white;
+}
 .sub:focus {
   outline: none;
   opacity: 0.8;
@@ -464,7 +475,7 @@ a.ApShare:hover,
   width: 100%;
   display: none;
   min-height: 95vh;
-  background-color: #a2a2a2;
+  background-color: #eeeeee;
   padding-bottom: 10px;
 }
 #prepost {
