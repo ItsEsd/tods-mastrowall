@@ -688,13 +688,18 @@ a.ApShare:hover,
   width: 100%;
   height: 100%;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .ForTypePs,
   .ForTypePm {
     width: 100% !important;
   }
   .youvidF {
     height: 300px !important;
+  }
+  #avthumb img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
   }
 }
 
