@@ -193,9 +193,6 @@ math-field:active {
   cursor: not-allowed;
 }
 
-#preTD .ML__virtual-keyboard-toggle {
-  display: none !important;
-}
 #toolBar2 {
   display: inline-block;
   width: 100%;
