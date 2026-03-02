@@ -248,7 +248,12 @@ math-field:active {
   text-align: left;
   word-wrap: break-word;
 }
-
+.todBody .mftd {
+  width: auto;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
 a:hover {
   color: #0c09c9;
 }

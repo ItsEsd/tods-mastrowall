@@ -10,3 +10,40 @@ if (r == "valid") {
 } else {
   $("#intro").show();
 }
+(function hideMathLiveVKToggle() {
+  const STYLE_ID = "hide-ml-vk-toggle";
+
+  function injectStyle(shadowRoot) {
+    if (shadowRoot.getElementById(STYLE_ID)) return;
+
+    const style = document.createElement("style");
+    style.id = STYLE_ID;
+    style.textContent = `
+      .ML__container .ML__virtual-keyboard-toggle {
+        display: none !important;
+      }
+    `;
+    shadowRoot.appendChild(style);
+  }
+
+  function scanMathLive() {
+    document.querySelectorAll("#preTD math-field").forEach((mf) => {
+      if (mf.shadowRoot) {
+        injectStyle(mf.shadowRoot);
+      }
+    });
+    document.querySelectorAll("#textBox math-field").forEach((mf) => {
+      if (mf.shadowRoot) {
+        injectStyle(mf.shadowRoot);
+      }
+    });
+  }
+
+  scanMathLive();
+
+  const observer = new MutationObserver(() => scanMathLive());
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+  });
+})();
