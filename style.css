@@ -168,6 +168,14 @@ math-field:active {
     display: block;
   }
 }
+@media not (pointer: coarse) {
+  .mftd::part(virtual-keyboard-toggle) {
+    display: none !important;
+  }
+  .mftd::part(menu-toggle) {
+    display: none !important;
+  }
+}
 #creqn math-field {
   padding: 10px;
   width: 100%;
@@ -184,10 +192,9 @@ math-field:active {
   pointer-events: none;
   cursor: not-allowed;
 }
-@media not (pointer: coarse) {
-  .mftd::part(virtual-keyboard-toggle) {
-    display: none;
-  }
+
+#preTD .ML__virtual-keyboard-toggle {
+  display: none !important;
 }
 #toolBar2 {
   display: inline-block;
